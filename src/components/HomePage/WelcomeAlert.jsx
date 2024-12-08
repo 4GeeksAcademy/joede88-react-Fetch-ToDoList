@@ -11,7 +11,7 @@ const WelcomeAlert = () => {
           <Alert variant="secondary">
             <Alert.Heading>Hey, nice to see you</Alert.Heading>
             <p>
-              Bienvenid@s a mi primer boilerplate. Aprovecha este espacio para
+              Bienvenid@s a mi boilerplate de React. Aprovecha este espacio para
               crear todo lo que se te ocurra.
             </p>
           </Alert>
