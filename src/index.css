@@ -1,0 +1,10 @@
+.caja {
+  justify-content: center;
+  text-align: center;
+}
+
+.tarea,
+input {
+  margin: auto;
+  width: 60%;
+}
