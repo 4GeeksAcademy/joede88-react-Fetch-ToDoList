@@ -1,7 +1,7 @@
 import { isEmpty } from "lodash";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { fetchUserTodos } from "../services/api";
+import { deleteTodo, fetchUserTodos, postTodo } from "../services/api";
 
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
@@ -10,29 +10,20 @@ const ToDoList = () => {
 
   function agregarTarea(e) {
     if (e.key === "Enter" && inputValue.trim() !== "") {
-      fetch(`https://playground.4geeks.com/todo/todos/JoeDiaz`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          label: inputValue,
-          is_done: false,
-        }),
-      }).then(() => {
-        fetchUserTodos(setTodos);
-        setInputValue("");
-      });
+      postTodo(inputValue)
+        .then(() => {
+          fetchUserTodos(setTodos);
+          setInputValue("");
+        });
     }
   }
 
-  function removerTarea(id) {
-    fetch(`https://playground.4geeks.com/todo/todos/${id}`, {
-      method: "DELETE",
-    }).then(() => {
-      fetchUserTodos(setTodos);
-    });
-  }
+    function removerTarea(id){
+      deleteTodo(id)
+      .then(() => {
+        fetchUserTodos(setTodos);
+      })
+    }
 
   useEffect(() => {
     fetchUserTodos(setTodos);
