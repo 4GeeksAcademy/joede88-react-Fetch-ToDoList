@@ -1,6 +1,6 @@
 import Bienvenidos from "../components/HomePage/Bienvenidos";
 import WelcomeAlert from "../components/HomePage/WelcomeAlert";
-import ToDoList from "./ToDoList";
+import ToDoList from "../components/HomePage/ToDoList";
 
 const HomePage = () => {
   return (
