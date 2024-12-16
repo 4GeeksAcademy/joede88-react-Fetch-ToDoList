@@ -11,16 +11,13 @@ export const fetchUsers = (setUsers) => {
 };
 
 //función para añadir user a lista API
-export const postUser = async (inputUser) => {
-  try {
-    const response = await fetch(`${baseUrl}/users/${inputUser}`, {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-    });
-    return await response.json();
-  } catch (error) {
-    console.error("Error al realizar la solicitud:", error); // Manejar errores
-  }
+export const postUser = (inputUser) => {
+  return fetch(`${baseUrl}/users/${inputUser}`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+  }).then((res) => res.json());
 };
 
 //función para borrar user de la lista API con fetch
