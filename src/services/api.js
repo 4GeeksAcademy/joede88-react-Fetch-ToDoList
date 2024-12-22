@@ -5,7 +5,6 @@ export const fetchUsers = (setUsers) => {
   fetch(`${baseUrl}/users`, { method: "GET" })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       setUsers(data.users);
     });
 };
