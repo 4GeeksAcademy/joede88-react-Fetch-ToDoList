@@ -1,8 +1,10 @@
 const baseUrl = `https://playground.4geeks.com/todo`;
+const usersUrl = `${baseUrl}/users`;
+const todosUrl = `${baseUrl}/todos`;
 
 // función para importar lista de users desde la API
 export const fetchUsers = (setUsers) => {
-  fetch(`${baseUrl}/users`, { method: "GET" })
+  fetch(`${usersUrl}`, { method: "GET" })
     .then((res) => res.json())
     .then((data) => {
       setUsers(data.users);
@@ -11,7 +13,7 @@ export const fetchUsers = (setUsers) => {
 
 //función para añadir user a lista API
 export const postUser = (inputUser) => {
-  return fetch(`${baseUrl}/users/${inputUser}`, {
+  return fetch(`${usersUrl}/${inputUser}`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -21,14 +23,14 @@ export const postUser = (inputUser) => {
 
 //función para borrar user de la lista API con fetch
 export const deleteUser = (name) => {
-  return fetch(`${baseUrl}/users/${name}`, {
+  return fetch(`${usersUrl}/${name}`, {
     method: "DELETE",
   });
 };
 
 // función para importar las tareas de mi usuario
 export const fetchUserTodos = (setTodos) => {
-  fetch(`${baseUrl}/users/JoeDiaz`, {
+  fetch(`${usersUrl}/JoeDiaz`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -39,7 +41,7 @@ export const fetchUserTodos = (setTodos) => {
 
 //función para añadir tarea a mi usuario
 export const postTodo = (inputValue) => {
-  return fetch(`${baseUrl}/todos/JoeDiaz`, {
+  return fetch(`${todosUrl}/JoeDiaz`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -53,7 +55,7 @@ export const postTodo = (inputValue) => {
 
 // función para borrar tarea
 export const deleteTodo = (id) => {
-  return fetch(`https://playground.4geeks.com/todo/todos/${id}`, {
+  return fetch(`${todosUrl}/${id}`, {
     method: "DELETE",
   });
 };
